@@ -10,7 +10,7 @@ import { columns } from "./columns";
 
 export const UserClient = ({ data }) => {
   const router = useRouter();
- 
+
   return (
     <>
       <div className="flex items-start justify-between">
@@ -20,7 +20,7 @@ export const UserClient = ({ data }) => {
         />
         <Button
           className="text-xs md:text-sm"
-          onClick={() => router.push(`/dashboard/user/new`)}
+          onClick={() => router.push(`/dashboard/user/create`)}
         >
           <Plus className="mr-2 h-4 w-4" /> Add New
         </Button>

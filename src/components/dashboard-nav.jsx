@@ -7,7 +7,14 @@ import { Icons } from "@/components/icons";
 import { cn } from "@/lib/utils";
 
 export function DashboardNav({ items, setOpen }) {
-  const path = usePathname();
+  let path = usePathname();
+  let parts = path.split("/").filter(function (part) {
+    return part !== "";
+  });
+
+  if (parts.length > 2) {
+    path = "/" + parts.slice(0, 2).join("/");
+  }
 
   if (!items?.length) {
     return null;
