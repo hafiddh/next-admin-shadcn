@@ -8,8 +8,8 @@ export const metadata = {
 };
 
 const breadcrumbItems = [
-  { title: "User", link: "/dashboard/user" },
-  { title: "Create", link: "/dashboard/user/create" },
+  { title: "User", link: "/admin/user" },
+  { title: "Create", link: "/admin/user/create" },
 ];
 export default function page() {
   return (

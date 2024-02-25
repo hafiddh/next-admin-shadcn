@@ -25,6 +25,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
+import { Textarea } from "../ui/textarea";
 
 const onSubmit = async (data) => {
   try {
@@ -42,21 +43,40 @@ const onSubmit = async (data) => {
     setLoading(false);
   }
 };
-
 const categories = [
-  { _id: 1, name: "Electronics" },
-  { _id: 2, name: "Clothing" },
-  { _id: 3, name: "Books" },
-  // tambahkan kategori lainnya sesuai kebutuhan
+  { _id: 4, name: "Tak Berkategori" },
+  { _id: 5, name: "pendidikan" },
+  { _id: 6, name: "religius" },
+  { _id: 7, name: "Beranda" },
+  { _id: 8, name: "Pertanian" },
+  { _id: 9, name: "Lingkungan" },
+  { _id: 10, name: "Informatika" },
+  { _id: 11, name: "Pemerintahan" },
+  { _id: 12, name: "Adipura" },
+  { _id: 13, name: "Kesehatan" },
+  { _id: 14, name: "Ekonomi" },
+  { _id: 15, name: "Hukum" },
+  { _id: 16, name: "Umum" },
+  { _id: 17, name: "Pembangunan" },
+  { _id: 18, name: "Teknologi" },
+  { _id: 19, name: "Prestasi" },
+  { _id: 20, name: "Olahraga" },
+  { _id: 21, name: "Parawisata" },
+  { _id: 22, name: "Potensi" },
+  { _id: 23, name: "Bencana" },
+  { _id: 24, name: "Morowali" },
+  { _id: 25, name: "pariwisata" },
+  { _id: 26, name: "Perjanjian Kinerja" },
+  { _id: 27, name: "Pengumuman" },
+  { _id: 28, name: "Koni" },
 ];
 
-const UserForm = () => {
+const BeritaForm = () => {
   const form = useForm();
   const [loading, setLoading] = useState(false);
 
-  const title = "Tambah User";
-  const description = "Tambahkan data user.";
-  const toastMessage = "Product updated.";
+  const title = "Tambah Berita";
+  const description = "Tambahkan data berita.";
   const action = "Save changes";
 
   return (
@@ -73,64 +93,49 @@ const UserForm = () => {
         >
           <FormField
             control={form.control}
-            name="imgUrl"
+            name="judul"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Images</FormLabel>
+                <FormLabel>Judul</FormLabel>
                 <FormControl>
-                  <Input
-                    disabled={loading}
-                    placeholder="Product name"
-                    {...field}
-                  />
+                  <Input disabled={loading} placeholder="Judul" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          <div className="md:grid md:grid-cols-3 gap-8">
+          <FormField
+            control={form.control}
+            name="isi"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Isi</FormLabel>
+                <FormControl>
+                  <Textarea
+                    disabled={loading}
+                    placeholder="Isi berita"
+                    {...field}
+                  ></Textarea>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <div className="md:grid md:grid-cols-2 gap-8">
             <FormField
               control={form.control}
-              name="name"
+              name="imgUrl"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel>Images</FormLabel>
                   <FormControl>
-                    <Input
+                    <input
+                      type="file"
                       disabled={loading}
-                      placeholder="Product name"
+                      accept="image/*"
                       {...field}
                     />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="description"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Description</FormLabel>
-                  <FormControl>
-                    <Input
-                      disabled={loading}
-                      placeholder="Product description"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="price"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Price</FormLabel>
-                  <FormControl>
-                    <Input type="number" disabled={loading} {...field} />
+                    {/* <Input disabled={loading} placeholder="Images" {...field} /> */}
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -179,4 +184,4 @@ const UserForm = () => {
   );
 };
 
-export default UserForm;
+export default BeritaForm;

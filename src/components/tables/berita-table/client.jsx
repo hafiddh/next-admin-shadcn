@@ -8,19 +8,18 @@ import { Plus } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { columns } from "./columns";
 
-export const UserClient = ({ data }) => {
+export const BeritaClient = ({ data }) => {
   const router = useRouter();
-
   return (
     <>
       <div className="flex items-start justify-between">
         <Heading
-          title={`Users (${data.length})`}
-          description="Manage users (Client side table functionalities.)"
+          title={`Berita (${data.length})`}
+          description="Kelola data berita."
         />
         <Button
           className="text-xs md:text-sm"
-          onClick={() => router.push(`/dashboard/user/create`)}
+          onClick={() => router.push(`/admin/berita/create`)}
         >
           <Plus className="mr h-5 w-5" />
         </Button>

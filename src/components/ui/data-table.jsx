@@ -19,6 +19,7 @@ import {
 import { Input } from "./input";
 import { Button } from "./button";
 import { ScrollArea, ScrollBar } from "./scroll-area";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export function DataTable({ columns, data, searchKey }) {
   const table = useReactTable({
@@ -27,9 +28,6 @@ export function DataTable({ columns, data, searchKey }) {
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
   });
-
-  /* this can be used to get the selectedrows 
-  console.log("value", table.getFilteredSelectedRowModel()); */
 
   return (
     <>
@@ -104,7 +102,7 @@ export function DataTable({ columns, data, searchKey }) {
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
           >
-            Previous
+            <ChevronLeft />
           </Button>
           <Button
             variant="outline"
@@ -112,7 +110,7 @@ export function DataTable({ columns, data, searchKey }) {
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
           >
-            Next
+            <ChevronRight />
           </Button>
         </div>
       </div>
